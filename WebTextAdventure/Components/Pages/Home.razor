@@ -1,7 +1,31 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Eternal Quest</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="container parchment screen">
+    <div class="banner">
+        <h1 class="title">Eternal Quest</h1>
+        <p class="subtitle">A 1980s fantasy text RPG</p>
+    </div>
 
-Welcome to your new app.
+    <div class="ornament">✦ ✶ ✦</div>
+
+    <div class="controls">
+        
+        <button class="button-fantasy" @onclick="NavigateToPage">New Game</button>
+        
+        <button class="button-fantasy">Load Game</button>
+        <button class="button-fantasy">Options</button>
+    </div>
+</div>
+
+
+@code 
+{
+    private void NavigateToPage() => Navigation.NavigateTo("game");
+}
+
+
+

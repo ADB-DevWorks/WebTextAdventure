@@ -1,0 +1,128 @@
+/* Fantasy / parchment inspired styles for Home.razor (scoped)
+   - Vertical stacked layout
+   - Warm parchment tones, gold accents, serif typography, ornamental flourishes
+*/
+
+:root {
+    --paper: #f4e7cf;
+    --paper-dark: #e7dcc2;
+    --ink: #2b1f0b;
+    --gold: #d6b06a;
+    --accent: #6b3a96;
+    --bg: #0b0b10;
+}
+
+.container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 84vh;
+    padding: 3rem 1.5rem;
+    width: 100%;
+    background: radial-gradient(1000px 400px at 50% 10%, rgba(255,255,255,0.03), transparent), linear-gradient(180deg, #08111b 0%, #05040a 100%);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.parchment {
+    position: relative;
+    width: min(920px, 94%);
+    padding: 2.25rem 2rem;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dark) 100%);
+    border: 6px solid rgba(43,31,11,0.12);
+    box-shadow: 0 18px 40px rgba(2,2,2,0.9), 0 0 30px rgba(107,58,150,0.02) inset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    overflow: visible;
+}
+
+/* subtle paper texture */
+.parchment::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(transparent 0 6px, rgba(0,0,0,0.015) 6px 7px);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+.banner { text-align: center; margin-bottom: 0.25rem; }
+
+.title {
+    font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+    margin: 0;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-shadow: 0 2px 0 rgba(43,31,11,0.18), 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.subtitle {
+    margin: 0.15rem 0 0 0;
+    color: #6b5134;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.ornament {
+    color: var(--gold);
+    opacity: 0.95;
+    letter-spacing: 6px;
+    font-size: 1.05rem;
+    margin: 0.4rem 0 0.6rem 0;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    gap: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.button-fantasy {
+    appearance: none;
+    -webkit-appearance: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.32));
+    border: 2px solid rgba(107,58,150,0.06);
+    color: var(--ink);
+    padding: 0.9rem 1rem;
+    font-family: inherit;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+    text-transform: none;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: inset 0 5px 0 rgba(255,255,255,0.45), 0 8px 20px rgba(0,0,0,0.35);
+    transition: transform 120ms ease, box-shadow 120ms ease, background 140ms ease;
+}
+
+.button-fantasy:hover {
+    transform: translateY(-3px);
+    box-shadow: inset 0 3px 0 rgba(255,255,255,0.35), 0 14px 30px rgba(0,0,0,0.35);
+}
+
+.button-fantasy:active {
+    transform: translateY(0);
+    box-shadow: inset 0 -6px 10px rgba(0,0,0,0);
+
+
+.footer-note::after {
+    content: " ▮";
+    display: inline-block;
+    margin-left: 6px;
+    animation: blink 1s steps(1) infinite;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .controls { width: 86%; }
+    .title { font-size: 2rem; }
+}
+
