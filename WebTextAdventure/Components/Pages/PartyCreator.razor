@@ -1,0 +1,58 @@
+﻿@page "/party-creator"
+@rendermode InteractiveServer
+@using WebTextAdventure.Models.Entities;
+
+<div>
+    <div>
+        <h1 >Create a party of four characters</h1>
+    </div>
+   
+    <div >
+        <input 
+            @bind="name"
+            type="text" 
+            placeholder="Enter name"
+            />
+        <select>
+            <option value="Fighter">Fighter</option>
+            <option value="Theif">Thief</option>
+            <option value="BlackBelt">Black Belt</option>
+            <option value="RedMage">Red Mage</option>
+            <option value="WhiteMAge">White Mage</option>
+            <option value="BlackMage">Black Mage</option>
+        </select>
+        
+        <button @onclick="Confirm">Confirm</button>
+        
+    </div>
+
+    @if (character != null)
+    {
+        <p>Name: @character.Name</p>
+        <p>Class: @character.job</p>
+    }
+    else
+    {
+        <p>NO Charcters selected</p>
+    }
+
+</div>
+
+<Game ></Game>
+
+@code 
+{
+
+    private string? name = "";
+    private Job selectedJob;
+    private Character character;
+
+    private List<Character> party { get; set; } = new List<Character>();
+
+    public void Confirm()
+    {
+        character = new Character(name, selectedJob);
+        party.Add(character);
+    }
+
+}
